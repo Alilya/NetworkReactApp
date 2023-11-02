@@ -5,6 +5,7 @@ import { useTheme } from "app/providers/ThemeProvider/lib/useTheme";
 import './styles/index.scss'
 import { AboutPage } from "../pages/AboutPage";
 import { MainPage } from "../pages/MainPage";
+import { AppRouter } from "./providers/router";
 
 
 
@@ -15,12 +16,7 @@ const App = () => {
             <Link to={"/"}>Главная</Link>
             <Link to={"/about"}>О сайте</Link>
             <button onClick={toggleTheme}>сменить тему</button>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path={'/about'} element={<AboutPage />} />
-                    <Route path={'/'} element={<MainPage />} />
-                </Routes>
-            </Suspense>
+            <AppRouter/>
         </div>
     )
 }
